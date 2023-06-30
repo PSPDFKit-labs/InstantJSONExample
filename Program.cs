@@ -6,9 +6,13 @@
         {
             PSPDFKit.Sdk.InitializeTrial();
 
+            GC.TryStartNoGCRegion(1000000000);
+            
             var test = new InstantJson();
             test.RunInstantJsonConcurrently();
             Console.WriteLine("Done!");
+
+            GC.EndNoGCRegion();
         }
     }
 }

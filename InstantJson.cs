@@ -29,10 +29,10 @@ namespace InstantJSONExample
 
         private void ApplyInstantJson()
         {
-            psPdfKitImportDocumentAndSaveMutexLock.WaitOne();
-
             var docStream = File.Open(DocumentHelper.GetAssetPath("default.pdf"), FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
             var document = new Document(new StreamDataProvider(docStream));
+
+            psPdfKitImportDocumentAndSaveMutexLock.WaitOne();
 
             try
             {
